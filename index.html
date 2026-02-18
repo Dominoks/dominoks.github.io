@@ -109,6 +109,144 @@ Kocham cię bardzo mocno. Mam nadzieję, że taki format ręcznego prezentu Ci s
 <section>
 <h1>Dziękuję że jesteś</h1>
 </section>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Mini gra: Odblokuj zdjęcia z pytaniami</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  .image-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .image-card {
+    position: relative;
+    width: 220px;
+    cursor: pointer;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .image-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    filter: blur(8px); /* zdjęcia początkowo zamazane */
+    transition: filter 0.6s ease, transform 0.3s ease;
+    margin-bottom: 10px;
+  }
+
+  .image-card img.unlocked {
+    filter: blur(0);
+    transform: scale(1.05);
+  }
+
+  .unlock-button {
+    margin-top: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .unlock-button:hover {
+    background-color: #45a049;
+  }
+
+  .question-input {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+  }
+
+  #message {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>Odblokuj zdjęcia!</h1>
+<p>Wpisz prawidłowe hasło dla każdego zdjęcia, aby je odkryć.</p>
+
+<div class="image-row">
+  <div class="image-card">
+    <img src="obraz1.jpg" id="img1" alt="Obraz 1">
+    <input class="question-input" type="text" placeholder="Twoje pytanie / hasło 1" id="input1">
+    <button class="unlock-button" onclick="checkPassword(1)">Sprawdź</button>
+  </div>
+
+  <div class="image-card">
+    <img src="obraz2.jpg" id="img2" alt="Obraz 2">
+    <input class="question-input" type="text" placeholder="Twoje pytanie / hasło 2" id="input2">
+    <button class="unlock-button" onclick="checkPassword(2)">Sprawdź</button>
+  </div>
+
+  <div class="image-card">
+    <img src="obraz3.jpg" id="img3" alt="Obraz 3">
+    <input class="question-input" type="text" placeholder="Twoje pytanie / hasło 3" id="input3">
+    <button class="unlock-button" onclick="checkPassword(3)">Sprawdź</button>
+  </div>
+</div>
+
+<div id="message"></div>
+
+<script>
+  // Hasła do odblokowania
+  const passwords = {
+    1: "kot",
+    2: "pies",
+    3: "ptak"
+  };
+
+  function checkPassword(number) {
+    const input = document.getElementById("input" + number).value.toLowerCase();
+    const img = document.getElementById("img" + number);
+    const message = document.getElementById("message");
+
+    if(input === passwords[number]) {
+      img.classList.add("unlocked");
+      message.textContent = `Brawo! Zdjęcie ${number} odblokowane! 🎉`;
+      message.style.color = "green";
+    } else {
+      message.textContent = "Niepoprawne hasło, spróbuj ponownie.";
+      message.style.color = "red";
+    }
+
+    document.getElementById("input" + number).value = "";
+  }
+</script>
+
+</body>
+</html>
+
+
+
     
 <!DOCTYPE html>
 <html lang="pl">
