@@ -52,9 +52,57 @@ img{
 <div class="gallery">
 <img src="foto1.jpg">
 <img src="foto2.jpg">
-<img src="foto4.jpg">
+<img src="foto3.jpg">
 </div>
 </section>
+
+
+
+    <!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Wyśrodkowany tekst</title>
+  <style>
+    body, html {
+      height: 100%;               /* pełna wysokość okna */
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;  /* delikatne tło */
+    }
+
+    .centered-text {
+      display: flex;              /* używamy flexboxa */
+      flex-direction: column;     
+      justify-content: center;    /* wyśrodkowanie pionowe */
+      align-items: center;        /* wyśrodkowanie poziome */
+      height: 100%;               /* zajmuje całą wysokość ekranu */
+      text-align: center;         /* ładne wyrównanie tekstu */
+      padding: 20px;
+    }
+
+    .centered-text h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .centered-text p {
+      font-size: 20px;
+      max-width: 700px;           /* aby tekst nie był za szeroki */
+      line-height: 1.6;           /* odstępy między wierszami */
+    }
+  </style>
+</head>
+<body>
+
+  <section class="centered-text">
+    <h1>Witaj na mojej stronie!</h1>
+    <p>
+      To jest długi tekst, który chcemy ładnie wyśrodkować na stronie. Możesz tu pisać kilka zdań, 
+      a wszystko będzie automatycznie wyśrodkowane zarówno poziomo, jak i pionowo. Dodatkowo, dzięki 
+      ograniczeniu szerokości i odpowiedniej wysokości linii, tekst wygląda estetycznie i jest łatwy do czytania.
+    </p>
+  </section>
 
 <section>
 <h1>Dziękuję że jesteś</h1>
